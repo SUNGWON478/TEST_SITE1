@@ -1,14 +1,113 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+  <title>NO NOSE SMELL</title>
+  <meta name="description" content="NO NOSE SMELL 공식 스토어" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=SUIT:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
+  <link href="/style.css" rel="stylesheet" />
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+  <div class="noise"></div>
+  <header class="topbar" id="topbar">
+    <button class="icon-btn" aria-label="메뉴 열기" id="menuButton">☰</button>
+    <h1 class="brand">NO NOSE SMELL</h1>
+    <button class="icon-btn" aria-label="장바구니">🛒</button>
+  </header>
+
+  <nav class="drawer" id="drawer" aria-hidden="true">
+    <a href="#new">NEW</a>
+    <a href="#best">BEST</a>
+    <a href="#lookbook">LOOKBOOK</a>
+    <a href="#about">ABOUT</a>
+  </nav>
+
+  <main>
+    <section class="hero reveal">
+      <p class="eyebrow">2026 SPRING DROP</p>
+      <h2>SMELL LESS.<br />FEEL MORE.</h2>
+      <p class="hero-copy">도시의 무드와 노이즈를 담은 스트릿 에센셜. 강한 실루엣과 가벼운 착용감의 밸런스.</p>
+      <div class="hero-actions">
+        <a href="#new" class="btn btn-fill">컬렉션 보기</a>
+        <a href="#about" class="btn btn-line">브랜드 스토리</a>
+      </div>
+    </section>
+
+    <section class="ticker">
+      <p>NO NOSE SMELL / FREE SHIPPING OVER ₩70,000 / MEMBER 10% OFF FIRST ORDER /</p>
+    </section>
+
+    <section class="category reveal" id="best">
+      <h3>SHOP BY MOOD</h3>
+      <div class="chips">
+        <button>OUTER</button>
+        <button>TOP</button>
+        <button>PANTS</button>
+        <button>ACC</button>
+      </div>
+    </section>
+
+    <section class="products reveal" id="new">
+      <div class="section-head">
+        <h3>NEW ARRIVALS</h3>
+        <a href="#">ALL</a>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="thumb thumb-a"><span>01</span></div>
+          <h4>Raw Edge Hood Zip-Up</h4>
+          <p>₩89,000</p>
+        </article>
+        <article class="card">
+          <div class="thumb thumb-b"><span>02</span></div>
+          <h4>Silent Mesh Layer Tee</h4>
+          <p>₩46,000</p>
+        </article>
+        <article class="card">
+          <div class="thumb thumb-c"><span>03</span></div>
+          <h4>Asphalt Wide Cargo</h4>
+          <p>₩72,000</p>
+        </article>
+        <article class="card">
+          <div class="thumb thumb-d"><span>04</span></div>
+          <h4>Steel Logo Ball Cap</h4>
+          <p>₩39,000</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="lookbook reveal" id="lookbook">
+      <p>LOOKBOOK</p>
+      <h3>Night Shift Uniform</h3>
+      <p class="lookbook-copy">한밤의 서울, 네온 잔향, 거친 표면 위의 미니멀 레이어.</p>
+    </section>
+
+    <section class="about reveal" id="about">
+      <h3>NO NOSE SMELL</h3>
+      <p>
+        NO NOSE SMELL은 감각을 과장하지 않고, 실루엣과 텍스처로 존재감을 남기는 스트릿웨어 레이블입니다.
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 NO NOSE SMELL</p>
+    <div>
+      <a href="#">INSTAGRAM</a>
+      <a href="#">KAKAO</a>
+    </div>
+  </footer>
+
+  <nav class="bottom-nav">
+    <a href="#">HOME</a>
+    <a href="#new">SHOP</a>
+    <a href="#lookbook">LOOK</a>
+    <a href="#">MY</a>
+  </nav>
+
+  <script defer src="/main.js"></script>
 </body>
 </html>
