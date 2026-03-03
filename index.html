@@ -5,53 +5,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>기니피그 강성원 판독기</title>
   <meta name="description" content="Teachable Machine 기반 이미지 판독 사이트" />
+  <meta property="og:title" content="기니피그 강성원 판독기" />
+  <meta property="og:description" content="사진 한 장 업로드하면 AI가 가장 높은 확률의 결과를 보여줍니다." />
+  <meta property="og:image" content="https://storage.googleapis.com/proudcity/mebanenc/uploads/2021/03/guinea-pig-1-e1615584352233.jpg" />
+  <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gowun+Batang:wght@400;700&family=SUIT:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet" />
   <link href="/style.css" rel="stylesheet" />
   <script defer src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
   <script defer src="/main.js"></script>
 </head>
 <body>
+  <div class="bg-glow one"></div>
+  <div class="bg-glow two"></div>
+
+  <header class="top-nav">
+    <p>Guinea Lab</p>
+    <span>Model: UbWxdKHuG</span>
+  </header>
+
   <main class="app">
-    <header class="hero panel">
-      <p class="kicker">RETRO PHOTO LAB</p>
+    <section class="hero">
+      <p class="eyebrow">SMART IMAGE CLASSIFIER</p>
       <h1>기니피그 강성원 판독기</h1>
-      <p class="desc">필름 감성 판독소. 사진 한 장으로 모델이 누구인지 판독합니다.</p>
+      <p class="hero-copy">사진 한 장 업로드하면 AI가 가장 높은 확률의 결과를 보여줍니다.</p>
 
-      <div class="guinea-box" aria-hidden="true">
-        <div class="guinea-ear left"></div>
-        <div class="guinea-ear right"></div>
-        <div class="guinea-face">
-          <div class="guinea-eye left"></div>
-          <div class="guinea-eye right"></div>
-          <div class="guinea-nose"></div>
-          <div class="guinea-mouth"></div>
-        </div>
+      <div class="guinea" aria-hidden="true">
+        <img id="guineaCutout" src="/G1.jpg" alt="" />
       </div>
-    </header>
-
-    <section class="panel controls">
-      <h2>1. 모델 로드</h2>
-      <button id="loadModelBtn" class="btn primary">모델 불러오기</button>
-      <p id="modelStatus" class="status">아직 모델이 로드되지 않았습니다.</p>
-      <p class="url">MODEL: UbWxdKHuG</p>
     </section>
 
-    <section class="panel controls">
-      <h2>2. 이미지 업로드 판독</h2>
+    <section class="card upload-card">
+      <h2>사진 업로드</h2>
       <input id="fileInput" type="file" accept="image/*" />
+
       <div class="preview-wrap">
         <img id="imagePreview" alt="업로드 미리보기" />
         <p id="previewHint">이미지를 업로드해 주세요</p>
       </div>
-      <button id="predictImageBtn" class="btn" disabled>판독 시작</button>
+
+      <button id="predictImageBtn" class="action" disabled>판독 시작</button>
+      <p id="appState" class="hint">모델 준비 중...</p>
+      <p id="modelStatus" class="sr-only" aria-live="polite">모델 준비 중...</p>
     </section>
 
-    <section class="panel result-panel">
+    <section class="card result-card">
       <h2>판독 결과</h2>
       <p id="topResult" class="top-result">결과를 기다리는 중...</p>
+      <div class="result-photo-wrap">
+        <img id="resultPhoto" alt="판독 결과 이미지" />
+      </div>
       <div id="resultBars" class="result-bars"></div>
     </section>
   </main>
