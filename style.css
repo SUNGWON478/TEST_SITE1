@@ -2,8 +2,8 @@
   --bg: #f5f5f7;
   --text: #1d1d1f;
   --muted: #6e6e73;
-  --card: rgba(255, 255, 255, 0.84);
-  --line: rgba(0, 0, 0, 0.08);
+  --card: #ffffff;
+  --line: rgba(0, 0, 0, 0.12);
   --accent: #0071e3;
   --good: #0c8a43;
 }
@@ -19,89 +19,67 @@ body {
   font-family: "DM Sans", sans-serif;
   color: var(--text);
   background: var(--bg);
-  min-height: 100%;
-}
-
-body {
-  position: relative;
-  overflow-x: hidden;
-}
-
-.bg-glow {
-  position: fixed;
-  width: 320px;
-  height: 320px;
-  border-radius: 999px;
-  filter: blur(70px);
-  z-index: 0;
-  pointer-events: none;
-}
-
-.bg-glow.one {
-  top: -120px;
-  left: -90px;
-  background: rgba(115, 182, 255, 0.42);
-}
-
-.bg-glow.two {
-  right: -110px;
-  bottom: -130px;
-  background: rgba(178, 210, 255, 0.4);
-}
-
-.top-nav,
-.app {
-  position: relative;
-  z-index: 1;
 }
 
 .top-nav {
   position: sticky;
   top: 0;
-  backdrop-filter: saturate(180%) blur(14px);
-  background: rgba(245, 245, 247, 0.72);
-  border-bottom: 1px solid var(--line);
+  z-index: 10;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 10px 14px;
+  gap: 10px;
+  align-items: center;
+  padding: 12px 14px;
+  background: rgba(245, 245, 247, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
 }
 
-.top-nav p,
-.top-nav span {
-  margin: 0;
-  font-size: 0.78rem;
+.brand-link {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 800;
+}
+
+.nav-links {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+}
+
+.nav-links a {
+  white-space: nowrap;
+  text-decoration: none;
   color: var(--muted);
-  letter-spacing: 0.01em;
+  font-size: 0.86rem;
 }
 
 .app {
-  width: min(980px, 100% - 28px);
-  margin: 14px auto 28px;
+  width: min(980px, 100% - 24px);
+  margin: 16px auto 24px;
   display: grid;
   gap: 12px;
 }
 
 .hero,
 .card {
-  border-radius: 26px;
   border: 1px solid var(--line);
+  border-radius: 22px;
   background: var(--card);
-  backdrop-filter: blur(10px);
 }
 
 .hero {
-  padding: 22px 18px;
   position: relative;
   overflow: hidden;
+  padding: 24px 16px;
 }
 
 .eyebrow {
   margin: 0;
   color: var(--accent);
-  font-size: 0.73rem;
+  font-size: 0.72rem;
   font-weight: 800;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.14em;
 }
 
 h1,
@@ -112,15 +90,14 @@ h2 {
 h1 {
   margin-top: 8px;
   font-family: "Montserrat", sans-serif;
-  font-size: clamp(2rem, 9vw, 3.4rem);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
+  font-size: clamp(2rem, 8.5vw, 3.2rem);
+  line-height: 1.06;
 }
 
 .hero-copy {
-  margin: 12px 0 0;
+  margin: 10px 0 0;
   color: var(--muted);
-  max-width: 38ch;
+  max-width: 40ch;
   line-height: 1.5;
 }
 
@@ -130,12 +107,11 @@ h1 {
   bottom: 10px;
   width: 170px;
   max-width: 40vw;
-  filter: drop-shadow(0 14px 14px rgba(0, 0, 0, 0.15));
+  filter: drop-shadow(0 10px 16px rgba(0, 0, 0, 0.15));
 }
 
 #guineaCutout {
   width: 100%;
-  height: auto;
   display: block;
 }
 
@@ -155,38 +131,36 @@ h2 {
 
 .preview-wrap {
   margin-top: 10px;
-  width: 100%;
-  min-height: 220px;
-  border-radius: 20px;
-  border: 1px dashed rgba(0, 0, 0, 0.16);
-  background: #fff;
+  min-height: 210px;
+  border-radius: 18px;
+  border: 1px dashed rgba(0, 0, 0, 0.18);
+  background: #fcfcff;
   display: grid;
   place-items: center;
   overflow: hidden;
 }
 
 #imagePreview {
-  display: none;
   width: 100%;
-  max-width: 100%;
+  display: none;
 }
 
 #previewHint {
   margin: 0;
-  color: #8c8c91;
-  font-size: 0.93rem;
+  color: #8b8b91;
+  font-size: 0.92rem;
 }
 
 .action {
-  width: 100%;
   margin-top: 12px;
+  width: 100%;
   border: none;
   border-radius: 999px;
   background: var(--accent);
   color: #fff;
+  padding: 12px;
   font-size: 0.95rem;
   font-weight: 700;
-  padding: 12px;
   cursor: pointer;
 }
 
@@ -210,19 +184,18 @@ h2 {
 
 .result-photo-wrap {
   margin-bottom: 10px;
-  border-radius: 16px;
-  overflow: hidden;
   border: 1px solid var(--line);
-  background: #fff;
+  border-radius: 14px;
   min-height: 160px;
+  background: #fff;
   display: grid;
   place-items: center;
+  overflow: hidden;
 }
 
 #resultPhoto {
-  width: 100%;
-  height: auto;
   display: none;
+  width: 100%;
 }
 
 .result-bars {
@@ -232,7 +205,7 @@ h2 {
 
 .result-row {
   display: grid;
-  grid-template-columns: 104px 1fr 60px;
+  grid-template-columns: 102px 1fr 58px;
   gap: 8px;
   align-items: center;
   font-size: 0.9rem;
@@ -242,8 +215,8 @@ h2 {
   width: 100%;
   height: 10px;
   border-radius: 999px;
-  background: #e7e7ed;
   overflow: hidden;
+  background: #e7e7ec;
 }
 
 .bar-fill {
@@ -251,6 +224,79 @@ h2 {
   height: 100%;
   transition: width 220ms ease;
   background: linear-gradient(90deg, #60a5fa, #0071e3);
+}
+
+.text-card p,
+.text-card li,
+.text-card summary {
+  color: #3a3a40;
+  line-height: 1.6;
+}
+
+.text-card ol,
+.text-card ul {
+  margin: 10px 0 0;
+  padding-left: 18px;
+}
+
+details {
+  margin-top: 10px;
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+}
+
+.site-footer {
+  width: min(980px, 100% - 24px);
+  margin: 0 auto 24px;
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+  display: grid;
+  gap: 8px;
+}
+
+.site-footer p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.site-footer nav {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.site-footer a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.84rem;
+}
+
+.simple-page {
+  width: min(920px, 100% - 24px);
+  margin: 16px auto 24px;
+}
+
+.simple-page article {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #fff;
+  padding: 18px;
+}
+
+.simple-page h1 {
+  font-size: clamp(1.6rem, 7vw, 2.4rem);
+}
+
+.simple-page p,
+.simple-page li {
+  line-height: 1.7;
+  color: #3a3a40;
+}
+
+.simple-page ul,
+.simple-page ol {
+  padding-left: 18px;
 }
 
 .sr-only {
@@ -265,25 +311,23 @@ h2 {
   border: 0;
 }
 
-@media (min-width: 820px) {
+@media (min-width: 860px) {
   .app {
-    grid-template-columns: 1.05fr 0.95fr;
+    grid-template-columns: 1fr 1fr;
   }
 
   .hero {
     grid-column: 1 / -1;
     min-height: 280px;
-    padding: 30px 28px;
+    padding: 30px 24px;
   }
 
-  .hero-copy {
-    font-size: 1.08rem;
+  .text-card {
+    grid-column: 1 / -1;
   }
 
   .guinea {
-    right: 18px;
-    bottom: 18px;
-    width: 240px;
-    max-width: 32vw;
+    width: 230px;
+    max-width: 28vw;
   }
 }

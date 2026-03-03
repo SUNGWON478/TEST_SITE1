@@ -3,14 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>기니피그 강성원 판독기</title>
-  <meta name="description" content="Teachable Machine 기반 이미지 판독 사이트" />
-  <meta property="og:title" content="기니피그 강성원 판독기" />
-  <meta property="og:description" content="사진 한 장 업로드하면 AI가 가장 높은 확률의 결과를 보여줍니다." />
-  <meta property="og:image" content="https://storage.googleapis.com/proudcity/mebanenc/uploads/2021/03/guinea-pig-1-e1615584352233.jpg" />
+  <title>기니피그 판독기 | AI 이미지 분류</title>
+  <meta name="description" content="기니피그 판독기는 업로드한 사진을 AI로 분석해 기니피그/강성원 확률을 보여주는 이미지 분류 서비스입니다." />
+  <meta property="og:title" content="기니피그 판독기" />
+  <meta property="og:description" content="사진 업로드만으로 AI 판독 결과를 확인하세요." />
+  <meta property="og:image" content="/G1.jpg" />
   <meta property="og:type" content="website" />
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3282222164244318"
-    crossorigin="anonymous"></script>
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="기니피그 판독기" />
+  <meta name="twitter:description" content="사진 업로드만으로 AI 판독 결과를 확인하세요." />
+  <link rel="canonical" href="/" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3282222164244318" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet" />
@@ -20,20 +23,21 @@
   <script defer src="/main.js"></script>
 </head>
 <body>
-  <div class="bg-glow one"></div>
-  <div class="bg-glow two"></div>
-
   <header class="top-nav">
-    <p>Guinea Lab</p>
-    <span>Model: UbWxdKHuG</span>
+    <a class="brand-link" href="/">기니피그 판독기</a>
+    <nav class="nav-links">
+      <a href="/about.html">소개</a>
+      <a href="/privacy.html">개인정보처리방침</a>
+      <a href="/terms.html">이용약관</a>
+      <a href="/contact.html">문의</a>
+    </nav>
   </header>
 
   <main class="app">
     <section class="hero">
-      <p class="eyebrow">SMART IMAGE CLASSIFIER</p>
-      <h1>기니피그 강성원 판독기</h1>
-      <p class="hero-copy">사진 한 장 업로드하면 AI가 가장 높은 확률의 결과를 보여줍니다.</p>
-
+      <p class="eyebrow">AI IMAGE CLASSIFIER</p>
+      <h1>기니피그 판독기</h1>
+      <p class="hero-copy">업로드한 이미지를 분석해 각 클래스 확률을 안내합니다. 본 서비스는 실험용 모델이며 결과는 참고용입니다.</p>
       <div class="guinea" aria-hidden="true">
         <img id="guineaCutout" src="/G1.jpg" alt="" />
       </div>
@@ -42,12 +46,10 @@
     <section class="card upload-card">
       <h2>사진 업로드</h2>
       <input id="fileInput" type="file" accept="image/*" />
-
       <div class="preview-wrap">
         <img id="imagePreview" alt="업로드 미리보기" />
-        <p id="previewHint">이미지를 업로드해 주세요</p>
+        <p id="previewHint">JPG/PNG 이미지를 업로드해 주세요</p>
       </div>
-
       <button id="predictImageBtn" class="action" disabled>판독 시작</button>
       <p id="appState" class="hint">모델 준비 중...</p>
       <p id="modelStatus" class="sr-only" aria-live="polite">모델 준비 중...</p>
@@ -61,6 +63,51 @@
       </div>
       <div id="resultBars" class="result-bars"></div>
     </section>
+
+    <section class="card text-card">
+      <h2>서비스 소개</h2>
+      <p>기니피그 판독기는 Google Teachable Machine 기반의 이미지 분류 모델을 활용합니다. 업로드 이미지는 브라우저 내에서 분석되며, 서버 저장을 기본으로 수행하지 않습니다.</p>
+    </section>
+
+    <section class="card text-card">
+      <h2>사용 방법</h2>
+      <ol>
+        <li>이미지 업로드 버튼으로 사진을 선택합니다.</li>
+        <li>모델 준비 완료 후 `판독 시작`을 누릅니다.</li>
+        <li>최종 예측 클래스와 각 클래스 확률을 확인합니다.</li>
+      </ol>
+    </section>
+
+    <section class="card text-card">
+      <h2>주의사항 및 한계</h2>
+      <ul>
+        <li>모델 정확도는 학습 데이터 품질에 따라 달라질 수 있습니다.</li>
+        <li>어두운 사진, 저해상도 사진은 오분류 가능성이 높습니다.</li>
+        <li>결과는 엔터테인먼트/실험 목적 참고용입니다.</li>
+      </ul>
+    </section>
+
+    <section class="card text-card">
+      <h2>자주 묻는 질문</h2>
+      <details>
+        <summary>업로드한 이미지가 서버에 저장되나요?</summary>
+        <p>기본 동작은 브라우저 내 처리이며, 별도 저장 API를 호출하지 않습니다.</p>
+      </details>
+      <details>
+        <summary>판독 결과가 이상하게 나와요.</summary>
+        <p>피사체가 중앙에 보이도록 밝고 선명한 사진으로 다시 시도해 주세요.</p>
+      </details>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <p>© 2026 기니피그 판독기</p>
+    <nav>
+      <a href="/about.html">서비스 소개</a>
+      <a href="/privacy.html">개인정보처리방침</a>
+      <a href="/terms.html">이용약관</a>
+      <a href="/contact.html">문의</a>
+    </nav>
+  </footer>
 </body>
 </html>
